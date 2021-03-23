@@ -19,4 +19,7 @@ def login(request):
 def signup(request):
     return render(request, 'vib/signup.html')
 
+def Schedule(request):
+    return render(request, 'vib/Schedule.html')
+
 
