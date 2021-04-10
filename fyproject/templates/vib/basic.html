@@ -6,17 +6,19 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>{% block title %}{% endblock title %}</title>
-     
+
   <meta content="" name="description">
   <meta content="" name="keywords">
-{% load static %}
+  {% load static %}
   <!-- Favicons -->
- <link href="{% static 'assets/img/siteicon1.png' %}" rel="icon">
+  <link href="{% static 'assets/img/siteicon1.png' %}" rel="icon">
   <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
- 
+
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="{%  static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
@@ -90,7 +92,7 @@
               <li><i class="bx bx-chevron-right"></i> <a href="/">Home</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="/about">About us</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="/features">Features</a></li>
-<!--              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>-->
+              <!--              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>-->
               <li><i class="bx bx-chevron-right"></i> <a href="/contact">Contact Us</a></li>
             </ul>
           </div>
@@ -99,14 +101,14 @@
 
           <div class="col-lg-4 ml-4 col-md-4 footer-newsletter">
             <h4>Follow Us</h4>
-<!--            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>-->
-              <div class="social-links text-center pt-3 pt-md-0">
-                      <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                      <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                      <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                      <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-                      <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-              </div>
+            <!--            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>-->
+            <div class="social-links text-center pt-3 pt-md-0">
+              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+              <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
             <!--<form action="" method="post">
               <input type="email" name="email"><input type="submit" value="Subscribe">
             </form>-->
@@ -122,34 +124,23 @@
         <div class="copyright">
           &copy; Copyright <strong><span>VIB</span></strong>. All Rights Reserved
         </div>
-       <!-- <div class="credits">
-          &lt;!&ndash; All the links in the footer should remain intact. &ndash;&gt;
-          &lt;!&ndash; You can delete the links only if you purchased the pro version. &ndash;&gt;
-          &lt;!&ndash; Licensing information: https://bootstrapmade.com/license/ &ndash;&gt;
-          &lt;!&ndash; Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/presento-bootstrap-corporate-template/ &ndash;&gt;
-          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-        </div>-->
+        
       </div>
-     <!-- <div class="social-links text-center text-md-end pt-3 pt-md-0">
-        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-      </div>-->
+   
     </div>
   </footer><!-- End Footer -->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
   <script src="{%  static 'assets/vendor/aos/aos.js' %}"></script>
   <script src="{%  static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
   <script src="{%  static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
   <script src="{%  static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
-  <script src="{%  static 'assets/vendor/php-email-form/validate.js' %}"></script>
+  {% comment %} <script src="{%  static 'assets/vendor/php-email-form/validate.js' %}"></script> {% endcomment %}
   <script src="{%  static 'assets/vendor/purecounter/purecounter.js' %}"></script>
-  <script src="{%  static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+  {% comment %} <script src="{%  static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script> {% endcomment %}
 
   <!-- Template Main JS File -->
   <script src="{%  static 'assets/js/main.js' %}"></script>
