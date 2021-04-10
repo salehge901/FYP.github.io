@@ -21,25 +21,24 @@
 
 
           <div class="col-lg-6">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <form action="/login" method="POST"  class="php-email-form" >
+                {% csrf_token %}
               <div class="form-group">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Email" required>
+                <input type="text" class="form-control" name="lusername" id="lusername" placeholder="Username" required>
               </div>
                <div class="form-group">
-                <input type="Password" class="form-control" name="subject" id="subject" placeholder="Password" required>
+                <input type="Password" class="form-control" name="lpassword" id="lpassword" placeholder="Password" required>
               </div>
                 <div class="form-group">
                                 <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />
                                 <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember me</label>
                             </div>
                              <a href="#" class="forgetpassword">ForgetPassword</a>
-              <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div>
               <div class="text-center"><button type="submit">Login</button></div>
                   <a href="/signup" class="signup-image-link">Create New Account</a>
+                 {% for message in messages  %}
+                  <h5 style="color:red;">{{ message }}</h5>
+                      {% endfor %}
             </form>
           </div>
             

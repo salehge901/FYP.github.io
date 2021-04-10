@@ -22,29 +22,17 @@
 
 
           <div class="col-lg-6">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-              <div class="form-group">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Name" required>
-              </div>
+            <form action="/Schedule" method="POST" role="form" class="php-email-form">
+               {% csrf_token %}
+
                <div class="form-group">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Email" required>
-              </div>
-               <div class="form-group">
-                <input type="tel" class="form-control" name="subject" id="subject" placeholder="Phone Number" required>
-              </div>
-               <div class="form-group">
-                <input type="date" class="form-control" name="subject" id="subject" placeholder="Enter the date" required>
+                <input type="date" class="form-control" name="date" id="date" placeholder="Enter the date" required>
               </div>
               <div class="form-group">
-                <input type="time" class="form-control" name="subject" id="subject" placeholder="Enter the time" required>
+                <input type="time" class="form-control" name="time" id="time" placeholder="Enter the time" required>
               </div>
 
-              <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div>
-              <div class="text-center"><button type="submit">Submit</button></div>
+              <div class="text-center" ><button type="submit">Submit</button></div>
             </form>
           </div>
 
