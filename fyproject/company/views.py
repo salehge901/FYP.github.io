@@ -1,4 +1,7 @@
 from django.shortcuts import render, HttpResponse
+from django.contrib.auth.models import User
+from django.contrib.auth  import  authenticate,  login, logout
+
 
 # Create your views here.
 def dashboard(request):
@@ -21,3 +24,13 @@ def candidate(request):
 
 def interview(request):
     return render(request, 'company/interview.html')
+
+
+def ulogout(request):
+    logout(request)
+    try:
+        del request.session['Utype']
+    except KeyError:
+        pass
+    return render(request, 'vib/home.html')
+
