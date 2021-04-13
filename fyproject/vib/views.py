@@ -106,6 +106,7 @@ def signup(request):
 
 
 
+
 def schedule(request):
     return render(request, 'vib/schedule.html')
 
