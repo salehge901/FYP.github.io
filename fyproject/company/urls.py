@@ -13,4 +13,9 @@ urlpatterns = [
     path('candidate/', views.candidate, name='candidate'),
     path('interview/', views.interview, name='interview'),
     path('logout', views.ulogout, name='ulogout'),
+    path('jobs/<int:id>', views.status,name='status'),
+    path('delete/<int:id>', views.delete,name='delete'),
+    path('update/<int:id>', views.update,name='update'),
+
+
 ]

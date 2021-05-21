@@ -9,7 +9,19 @@
 
 <!--main content start-->
     <section id="main-content">
+    
       <section class="wrapper">
+      {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible" role="alert">
+
+      {% if message.tags == "success" %}
+      <strong>Well done!</strong> {{ message}}
+      {% else %}
+      <strong>Error!</strong> {{ message}}
+      {% endif %}
+      
+    </div>
+    {% endfor %}
         <div class="row">
           <div class="col-lg-12">
             <h3 class="page-header"><i class="fa fa-table"></i> Jobs</h3>
@@ -43,17 +55,39 @@
                     <th><i class="icon_calendar"></i> Discription</th>
                     <th><i class="icon_cogs"></i> Action</th>
                   </tr>
+                  {% if alljobs %}
+                 
+                  {% for jobs in alljobs %}
+                  
                   <tr>
-                    <td>Graphic Designer</td>
-                    <td>VIB is looking for enthusiastic Graphic Designer who loves challenges and is creative in his approach.</td>
+                    <td>{{jobs.job_title}}</td>
+                    <td>{{jobs.job_discription}}</td>
                     <td>
-                      <div class="btn-group">
-                        <a class="btn btn-primary" href="#">Edit</a>
-                        <a class="btn btn-success" href="#">Active/Deactive</a>
-                        <a class="btn btn-danger" href="#">Delete</a>
+                      <div class="btn-group" >
+                        <a class="btn btn-primary" href="{% url 'update' jobs.id %}">Edit</a>
+                        {% if jobs.job_status  %}
+                        <a class="btn btn-success" href="{% url 'status' jobs.id %}">Active</a>
+                        {% else %}
+                        <a class="btn btn-danger" href="{% url 'status' jobs.id %}">Deactive</a>
+                        {% endif %}
+                        
+                        <a class="btn btn-danger" href="{% url 'delete' jobs.id %}">Delete</a>
                       </div>
                     </td>
                   </tr>
+                  {% endfor %}
+
+                  {% else %}
+                  
+                  
+                  <tr>
+                    <td class="text-center">no record found.</td>
+                  </tr>
+                  
+
+
+                  {% endif %}
+                  
 
                 </tbody>
               </table>

@@ -29,18 +29,23 @@
                 Add New Job Form
               </header>
               <div class="panel-body">
-                <form class="form-horizontal" role="form">
+              {% if ujob %}
+              {% for job  in ujob %}
+              
+              
+              <form class="form-horizontal" role="form" method="post">
+                {% csrf_token %}
                   <div class="form-group">
                     <label for="inputJobTitle" class="col-lg-2 control-label">Job Title</label>
                     <div class="col-lg-6">
-                      <input type="text" class="form-control" id="" placeholder="Enter Job Title">
+                      <input type="text" class="form-control" id="job_title" name="job_title" value="{{job.job_title}}" placeholder="Enter Job Title" required>
                       
                     </div>
                   </div>
                   <div class="form-group">
                     <label for="inputDiscription" class="col-lg-2 control-label">Discription</label>
                     <div class="col-lg-6">
-                        <textarea name="" id="" cols="30" rows="10" style="margin: 0px; width: 547px; height: 199px;"></textarea>
+                        <textarea id="job_discription"  name="job_discription" cols="30" rows="10" style="margin: 0px; width: 547px; height: 199px;">{{job.job_discription}}</textarea>
                       
                     </div>
                   </div>
@@ -51,6 +56,33 @@
                     </div>
                   </div>
                 </form>
+                {% endfor %}
+              {% else %}
+                <form class="form-horizontal" role="form" method="post">
+                {% csrf_token %}
+                  <div class="form-group">
+                    <label for="inputJobTitle" class="col-lg-2 control-label">Job Title</label>
+                    <div class="col-lg-6">
+                      <input type="text" class="form-control" id="job_title" name="job_title" placeholder="Enter Job Title" required>
+                      
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="inputDiscription" class="col-lg-2 control-label">Discription</label>
+                    <div class="col-lg-6">
+                        <textarea id="job_discription"  name="job_discription" cols="30" rows="10" style="margin: 0px; width: 547px; height: 199px;"></textarea>
+                      
+                    </div>
+                  </div>
+                  
+                  <div class="form-group">
+                    <div class="col-lg-offset-2 col-lg-10">
+                      <button type="submit" class="btn btn-danger">Save</button>
+                    </div>
+                  </div>
+                </form>
+              {% endif %}
+                
               </div>
             </section>
 
