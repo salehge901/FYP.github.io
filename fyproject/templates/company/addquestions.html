@@ -59,16 +59,17 @@
           <div class="form-group">
             <label for="inputJob" class="col-lg-2 control-label">Job</label>
             <div class="col-lg-6">
-              <select class="form-control m-bot15">
+              <select class="form-control m-bot15" onchange="GetSelectedTextValue(this)">
                 {% if alljobs %}
                 {% for job in alljobs %}
-                <option>{{job.job_title}}</option>
+                <option value="{{job.job_title}}">{{job.job_title}}</option>
                 {% endfor %}
                 {% else %}
                 <option>No job availebale</option>
+                <option value="addjob">Add Job</option>
 
                 {% endif %}
-                
+
               </select>
 
             </div>
@@ -87,7 +88,7 @@
 
             </div>
           </div>
-           <div class="form-group">
+          <div class="form-group">
             <label for="inputTimeToAnswer" class="col-lg-2 control-label">Time To Answer</label>
             <div class="col-lg-6">
               <select class="form-control m-bot15">
@@ -114,7 +115,15 @@
 
 </section>
 <!--main content end-->
-
+<script>
+  function GetSelectedTextValue(ddlval) {
+        //var selectedText = ddlFruits.options[ddlFruits.selectedIndex].innerHTML;
+        var selectedValue = ddlval.value;
+        if(selectedValue=="addjob")
+        window.location.href = "/jobs/add-job";
+          //alert("Selected Text: " + selectedText + " Value: " + selectedValue);
+    }
+</script>
 
 
 {% endblock body %}
