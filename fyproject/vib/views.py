@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse, HttpResponseRedirect
+from django.shortcuts import redirect, render, HttpResponse, HttpResponseRedirect
 from django.contrib.auth.models import User
 from vib.models import Extend
 from django.contrib.auth  import authenticate,  login, logout
@@ -25,20 +25,23 @@ def ulogin(request):
         password = request.POST['password']
 
         user = authenticate(username=username, password=password)
-        extendobject = Extend.objects.all()
-        type = ''
-        for itme in extendobject:
-            if(itme.user==user):
-                type = itme.user_type
-                break
+        print(user)
+        #extendobject = Extend.objects.all()
+        accounttype = Extend.objects.get(user=user)
+        #print(accounttype.user_type)
+        type = accounttype.user_type
+        
        
         if user is not None:
             login(request  , user)
             if(type=="Candidate"):
+                request.session['Utype']=type
+                #return redirect('/dashboard/')
                 return render(request, 'vib/home.html')
             if(type=="Company"):
                 request.session['Utype']=type
-                return render(request, 'company/dashboard.html')
+                return redirect('/dashboard/')
+                #return render(request, 'company/dashboard.html')
 
         else:
             messages.error(request, "Invalid credentials! Please try again")
@@ -116,6 +119,7 @@ def ulogout(request):
         del request.session['Utype']
     except KeyError:
         pass
-    return render(request, 'vib/home.html')
+    return redirect('/')
+    #return render(request, 'vib/home.html')
 
 

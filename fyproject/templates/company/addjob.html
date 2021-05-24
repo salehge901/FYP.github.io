@@ -1,5 +1,5 @@
 {% extends 'company/basic.html' %}
- {% block title %} Add Job {% endblock title %}
+{% block title %} Add Job {% endblock title %}
 
 {% block body %}
 {% load static %}
@@ -7,91 +7,95 @@
 
 
 <!--main content start-->
-    <section id="main-content">
-      <section class="wrapper">
-        <div class="row">
-          <div class="col-lg-12">
-            <h3 class="page-header"><i class="fa fa-table"></i>Add New Job</h3>
-            
-            <ol class="breadcrumb">
-              <li><i class="fa fa-home"></i><a href="index.html">Dashboard</a></li>
-              <li><i class="fa fa-table"></i>Jobs</li>
-              <li><i class="fa fa-table"></i>Add New Job</li>
-              
-            </ol>
+<section id="main-content">
+  <section class="wrapper">
+    <div class="row">
+      <div class="col-lg-12">
+        <h3 class="page-header"><i class="fa fa-table"></i>Add New Job</h3>
+
+        <ol class="breadcrumb">
+          <li><i class="fa fa-home"></i><a href="index.html">Dashboard</a></li>
+          <li><i class="fa fa-table"></i>Jobs</li>
+          <li><i class="fa fa-table"></i>Add New Job</li>
+
+        </ol>
+      </div>
+
+    </div>
+    <!-- page start-->
+
+    <section class="panel">
+      <header class="panel-heading">
+        Add New Job Form
+      </header>
+      <div class="panel-body">
+        {% if ujob %}
+        {% for job in ujob %}
+
+
+        <form class="form-horizontal" role="form" method="post">
+          {% csrf_token %}
+          <div class="form-group">
+            <label for="inputJobTitle" class="col-lg-2 control-label">Job Title</label>
+            <div class="col-lg-6">
+              <input type="text" class="form-control" id="job_title" name="job_title" value="{{job.job_title}}"
+                placeholder="Enter Job Title" required>
+
+            </div>
           </div>
-            
-        </div>
-        <!-- page start-->
+          <div class="form-group">
+            <label for="inputDiscription" class="col-lg-2 control-label">Discription</label>
+            <div class="col-lg-6">
+              <textarea id="job_discription" name="job_discription" cols="30" rows="10"
+                style="margin: 0px; width: 547px; height: 199px;">{{job.job_discription}}</textarea>
 
-        <section class="panel">
-              <header class="panel-heading">
-                Add New Job Form
-              </header>
-              <div class="panel-body">
-              {% if ujob %}
-              {% for job  in ujob %}
-              
-              
-              <form class="form-horizontal" role="form" method="post">
-                {% csrf_token %}
-                  <div class="form-group">
-                    <label for="inputJobTitle" class="col-lg-2 control-label">Job Title</label>
-                    <div class="col-lg-6">
-                      <input type="text" class="form-control" id="job_title" name="job_title" value="{{job.job_title}}" placeholder="Enter Job Title" required>
-                      
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="inputDiscription" class="col-lg-2 control-label">Discription</label>
-                    <div class="col-lg-6">
-                        <textarea id="job_discription"  name="job_discription" cols="30" rows="10" style="margin: 0px; width: 547px; height: 199px;">{{job.job_discription}}</textarea>
-                      
-                    </div>
-                  </div>
-                  
-                  <div class="form-group">
-                    <div class="col-lg-offset-2 col-lg-10">
-                      <button type="submit" class="btn btn-danger">Save</button>
-                    </div>
-                  </div>
-                </form>
-                {% endfor %}
-              {% else %}
-                <form class="form-horizontal" role="form" method="post">
-                {% csrf_token %}
-                  <div class="form-group">
-                    <label for="inputJobTitle" class="col-lg-2 control-label">Job Title</label>
-                    <div class="col-lg-6">
-                      <input type="text" class="form-control" id="job_title" name="job_title" placeholder="Enter Job Title" required>
-                      
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="inputDiscription" class="col-lg-2 control-label">Discription</label>
-                    <div class="col-lg-6">
-                        <textarea id="job_discription"  name="job_discription" cols="30" rows="10" style="margin: 0px; width: 547px; height: 199px;"></textarea>
-                      
-                    </div>
-                  </div>
-                  
-                  <div class="form-group">
-                    <div class="col-lg-offset-2 col-lg-10">
-                      <button type="submit" class="btn btn-danger">Save</button>
-                    </div>
-                  </div>
-                </form>
-              {% endif %}
-                
-              </div>
-            </section>
+            </div>
+          </div>
 
-      
-        <!-- page end-->
-      </section>
+          <div class="form-group">
+            <div class="col-lg-offset-2 col-lg-10">
+              <button type="submit" class="btn btn-danger">Update</button>
+            </div>
+          </div>
+        </form>
+        {% endfor %}
+        {% else %}
+        <form class="form-horizontal" role="form" method="post">
+          {% csrf_token %}
+          <div class="form-group">
+            <label for="inputJobTitle" class="col-lg-2 control-label">Job Title</label>
+            <div class="col-lg-6">
+              <input type="text" class="form-control" id="job_title" name="job_title" placeholder="Enter Job Title"
+                required>
 
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputDiscription" class="col-lg-2 control-label">Discription</label>
+            <div class="col-lg-6">
+              <textarea id="job_discription" name="job_discription" cols="30" rows="10"
+                style="margin: 0px; width: 547px; height: 199px;"></textarea>
+
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-lg-offset-2 col-lg-10">
+              <button type="submit" class="btn btn-danger">Save</button>
+            </div>
+          </div>
+        </form>
+        {% endif %}
+
+      </div>
     </section>
-    <!--main content end-->
+
+
+    <!-- page end-->
+  </section>
+
+</section>
+<!--main content end-->
 
 
 

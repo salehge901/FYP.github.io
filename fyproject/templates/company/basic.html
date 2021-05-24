@@ -2,53 +2,34 @@
 <html lang="en">
 
 <head>
-{% load static %}
+  {% load static %}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Creative - Bootstrap 3 Responsive Admin Template">
-  <meta name="author" content="GeeksLabs">
-  <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
+  
   <link rel="shortcut icon" href="{% static 'cassets/img/favicon.png' %}">
 
   <title>{% block title %} {% endblock title %}</title>
 
-  <!-- Bootstrap CSS -->
-  <link href="{% static 'cassets/css/bootstrap.min.css' %}" rel="stylesheet">
-  <!-- bootstrap theme -->
+  
   <link href="{% static 'cassets/css/bootstrap-theme.css' %}" rel="stylesheet">
-  <link href="{%  static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
-  <!--external css-->
-  <link href="{% static 'assets/img/siteicon1.png' %}" rel="icon">
-  <!-- font icon -->
+  
   <link href="{% static 'cassets/css/elegant-icons-style.css' %}" rel="stylesheet" />
-  <link href="{% static 'cassets/css/font-awesome.min.css' %}" rel="stylesheet" />
-  <!-- full calendar css-->
-  <link href="{% static 'cassets/assets/fullcalendar/fullcalendar/bootstrap-fullcalendar.css' %}" rel="stylesheet" />
-  <link href="{% static 'cassets/assets/fullcalendar/fullcalendar/fullcalendar.css' %}" rel="stylesheet" />
-  <!-- easy pie chart-->
-  <link href="{% static 'cassets/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css' %}" rel="stylesheet" type="text/css" media="screen" />
-  <!-- owl carousel -->
-  <link rel="stylesheet" href="{% static 'cassets/css/owl.carousel.css' %}" type="text/css">
-  <link href="{% static 'cassets/css/jquery-jvectormap-1.2.2.css' %}" rel="stylesheet">
-  <!-- Custom styles -->
-  <link rel="stylesheet" href="{% static 'cassets/css/fullcalendar.css' %}">
-  <link href="{% static 'cassets/css/widgets.css' %}" rel="stylesheet">
+ 
   <link href="{% static 'cassets/css/style.css' %}" rel="stylesheet">
   <link href="{% static 'cassets/css/style-responsive.css' %}" rel="stylesheet" />
-  <link href="{% static 'cassets/css/xcharts.min.css' %}" rel=" stylesheet">
-  <link href="{% static 'cassets/css/jquery-ui-1.10.4.min.css' %}" rel="stylesheet">
-  
+ 
 
 
 
-{% if user.is_authenticated  %}
-{% if request.session.Utype == "Company" %}
-{% else %}
-<script>location.replace("/")</script>
-{% endif %}
-{% else %}
-<script>location.replace("/")</script>
-{% endif %}
+
+  {% if user.is_authenticated %}
+  {% if request.session.Utype == "Company" %}
+  {% else %}
+  <script>location.replace("/")</script>
+  {% endif %}
+  {% else %}
+  <script>location.replace("/")</script>
+  {% endif %}
 
 
 
@@ -62,7 +43,8 @@
 
     <header class="header dark-bg">
       <div class="toggle-nav">
-        <div class="icon-reorder tooltips" data-original-title="" data-placement="bottom"><i class="icon_menu"></i></div>
+        <div class="icon-reorder tooltips" data-original-title="" data-placement="bottom"><i class="icon_menu"></i>
+        </div>
       </div>
 
       <!--logo start-->
@@ -88,12 +70,12 @@
           <!-- user login dropdown start-->
           <li class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="profile-ava">
-                                <img alt="" src="{% static 'assets/img/team/salehjpg.jpg' %}" width="30px" hight="30px">
-                            </span>
-                            <span class="username">{{request.user}}</span>
-                            <b class="caret"></b>
-                        </a>
+              <span class="profile-ava">
+                <img alt="" src="{% static 'assets/img/team/salehjpg.jpg' %}" width="30px" hight="30px">
+              </span>
+              <span class="username">{{request.user}}</span>
+              <b class="caret"></b>
+            </a>
             <ul class="dropdown-menu extended logout">
               <div class="log-arrow-up"></div>
               <li class="eborder-top">
@@ -118,43 +100,43 @@
         <ul class="sidebar-menu">
           <li class="active">
             <a class="" href="/dashboard">
-                          <i class="icon_house_alt"></i>
-                          <span>Dashboard</span>
-                      </a>
+              <i class="icon_house_alt"></i>
+              <span>Dashboard</span>
+            </a>
           </li>
-         
+
           <li>
             <a class="" href="/interview">
-                          <i class="icon_genius"></i>
-                          <span>Interviews</span>
-                      </a>
+              <i class="icon_genius"></i>
+              <span>Interviews</span>
+            </a>
           </li>
           <li>
             <a class="" href="/jobs">
-                          <i class="icon_piechart"></i>
-                          <span>Jobs</span>
+              <i class="icon_piechart"></i>
+              <span>Jobs</span>
 
-                      </a>
+            </a>
 
           </li>
           <li>
             <a class="" href="/questions">
-                          <i class="bi bi-book"></i>
-                          <span>Questions</span>
+              <i class="icon_piechart"></i>
+              <span>Questions</span>
 
-                      </a>
+            </a>
 
           </li>
           <li>
             <a class="" href="/candidate">
-                          <i class="icon_piechart"></i>
-                          <span>Candidate</span>
+              <i class="icon_piechart"></i>
+              <span>Candidate</span>
 
-                      </a>
+            </a>
 
           </li>
 
-          
+
 
         </ul>
         <!-- sidebar menu end-->
@@ -164,7 +146,7 @@
 
 
     <!--main content start-->
-    
+
     {% block body %}
 
 
@@ -181,92 +163,18 @@
 
 
 
-  <!-- javascripts -->
-  <script src="{% static 'cassets/js/jquery.js' %}"></script>
-  <script src="{% static 'cassets/js/jquery-ui-1.10.4.min.js' %}"></script>
+
   <script src="{% static 'cassets/js/jquery-1.8.3.min.js' %}"></script>
-  <script type="text/javascript" src="{% static 'cassets/js/jquery-ui-1.9.2.custom.min.js' %}"></script>
-  <!-- bootstrap -->
+
   <script src="{% static 'cassets/js/bootstrap.min.js' %}"></script>
-  <!-- nice scroll -->
-  <script src="{% static 'cassets/js/jquery.scrollTo.min.js' %}"></script>
-  {% comment %} <script src="{% static 'cassets/js/jquery.nicescroll.js' %}" type="text/javascript"></script> {% endcomment %}
-  <!-- charts scripts -->
-  <script src="{% static 'cassets/assets/jquery-knob/js/jquery.knob.js' %}"></script>
-  <script src="{% static 'cassets/js/jquery.sparkline.js' %}" type="text/javascript"></script>
-  <script src="{% static 'cassets/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.js' %}"></script>
-  <script src="{% static 'cassets/js/owl.carousel.js' %}"></script>
-  <!-- jQuery full calendar -->
-  <<script src="{% static 'cassets/js/fullcalendar.min.js' %}"></script>
-    <!-- Full Google Calendar - Calendar -->
-    <script src="{% static 'cassets/assets/fullcalendar/fullcalendar/fullcalendar.js' %}"></script>
-    <!--script for this page only-->
-    <script src="{% static 'cassets/js/calendar-custom.js' %}"></script>
-    <script src="{% static 'cassets/js/jquery.rateit.min.js' %}"></script>
-    <!-- custom select -->
-    <script src="{% static 'cassets/js/jquery.customSelect.min.js' %}"></script>
-    <script src="{% static 'cassets/assets/chart-master/Chart.js' %}"></script>
 
-    <!--custome script for all page-->
-    <script src="{% static 'cassets/js/scripts.js' %}"></script>
-    <!-- custom script for this page-->
-    <script src="{% static 'cassets/js/sparkline-chart.js' %}"></script>
-    <script src="{% static 'cassets/js/easy-pie-chart.js' %}"></script>
-    <script src="{% static 'cassets/js/jquery-jvectormap-1.2.2.min.js' %}"></script>
-    <script src="{% static 'cassets/js/jquery-jvectormap-world-mill-en.js' %}"></script>
-    <script src="{% static 'cassets/js/xcharts.min.js' %}"></script>
-    <script src="{% static 'cassets/js/jquery.autosize.min.js' %}"></script>
-    <script src="{% static 'cassets/js/jquery.placeholder.min.js' %}"></script>
-    <script src="{% static 'cassets/js/gdp-data.js' %}"></script>
-    <script src="{% static 'cassets/js/morris.min.js' %}"></script>
-    <script src="{% static 'cassets/js/sparklines.js' %}"></script>
-    <script src="{% static 'cassets/js/charts.js' %}"></script>
-    <script src="{% static 'cassets/js/jquery.slimscroll.min.js' %}"></script>
-    <script>
-      //knob
-      $(function() {
-        $(".knob").knob({
-          'draw': function() {
-            $(this.i).val(this.cv + '%')
-          }
-        })
-      });
 
-      //carousel
-      $(document).ready(function() {
-        $("#owl-slider").owlCarousel({
-          navigation: true,
-          slideSpeed: 300,
-          paginationSpeed: 400,
-          singleItem: true
 
-        });
-      });
+  <script src="{% static 'cassets/js/scripts.js' %}"></script>
 
-      //custom select box
+  <script src="{% static 'cassets/js/jquery-jvectormap-1.2.2.min.js' %}"></script>
 
-      $(function() {
-        $('select.styled').customSelect();
-      });
 
-      /* ---------- Map ---------- */
-      $(function() {
-        $('#map').vectorMap({
-          map: 'world_mill_en',
-          series: {
-            regions: [{
-              values: gdpData,
-              scale: ['#000', '#000'],
-              normalizeFunction: 'polynomial'
-            }]
-          },
-          backgroundColor: '#eef3f7',
-          onLabelShow: function(e, el, code) {
-            el.html(el.html() + ' (GDP - ' + gdpData[code] + ')');
-          }
-        });
-      });
-    </script>
 
 </body>
 

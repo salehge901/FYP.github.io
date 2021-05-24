@@ -9,6 +9,7 @@ urlpatterns = [
     path('jobs/', views.jobs, name='jobs'),
     path('jobs/add-job/', views.addjob, name='addjob'),
     path('questions/', views.questions, name='questions'),
+    path('questions/<int:id>', views.jquestions, name='jquestions'),
     path('questions/add-new-questions/', views.addquestions, name='addquestions'),
     path('candidate/', views.candidate, name='candidate'),
     path('interview/', views.interview, name='interview'),
@@ -16,6 +17,9 @@ urlpatterns = [
     path('jobs/<int:id>', views.status,name='status'),
     path('delete/<int:id>', views.delete,name='delete'),
     path('update/<int:id>', views.update,name='update'),
+    path('qstatus/<int:id>', views.qstatus,name='qstatus'),
+    path('qdelete/<int:id>', views.qdelete,name='qdelete'),
+    path('qupdate/<int:id>', views.qupdate,name='qupdate'),
 
 
 ]
