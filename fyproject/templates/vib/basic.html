@@ -33,6 +33,19 @@
   <link href="{%  static 'assets/css/style.css' %}" rel="stylesheet">
 
 
+{% if user.is_authenticated %}
+  {% if request.session.Utype == "Company" %}
+    <script>location.replace("company/dashboard/")</script>
+  {% endif %}
+  {% if request.session.Utype == "Candidate" %}
+    <script>location.replace("user/dashboard/")</script>
+  {% endif %}
+
+{% else %}
+  
+{% endif %}
+
+
 </head>
 
 <body>

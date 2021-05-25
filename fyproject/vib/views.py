@@ -15,6 +15,12 @@ def features(request):
 def about(request):
     return render(request, 'vib/about.html')
 
+def cdasboard(request):
+    return render(request, 'company/dashboard.html')
+
+def udashboard(request):
+    return render(request, 'user/dashboard.html')
+
 def contact(request):
     return render(request, 'vib/contact.html')
 
@@ -37,7 +43,7 @@ def ulogin(request):
             if(type=="Candidate"):
                 request.session['Utype']=type
                 #return redirect('/dashboard/')
-                return render(request, 'vib/home.html')
+                return render(request, 'user/dashboard.html')
             if(type=="Company"):
                 request.session['Utype']=type
                 return redirect('/dashboard/')

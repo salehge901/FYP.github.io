@@ -10,5 +10,7 @@ urlpatterns = [
     path('login/', views.ulogin, name='ulogin'),
     path('logout/', views.ulogout, name='ulogout'),
     path('signup/', views.signup, name='signup'),
-    path('schedule/', views.schedule, name='schedule')
+    path('schedule/', views.schedule, name='schedule'),
+    path('company/dashboard/', views.cdasboard, name='cdashboard'),
+    path('user/dashboard/', views.udashboard, name='udashboard'),
 ]
