@@ -5,19 +5,19 @@
   {% load static %}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
   <link rel="shortcut icon" href="{% static 'cassets/img/favicon.png' %}">
 
   <title>{% block title %} {% endblock title %}</title>
 
-  
+
   <link href="{% static 'cassets/css/bootstrap-theme.css' %}" rel="stylesheet">
-  
+
   <link href="{% static 'cassets/css/elegant-icons-style.css' %}" rel="stylesheet" />
- 
+
   <link href="{% static 'cassets/css/style.css' %}" rel="stylesheet">
   <link href="{% static 'cassets/css/style-responsive.css' %}" rel="stylesheet" />
- 
+
 
 
 
@@ -48,20 +48,20 @@
       </div>
 
       <!--logo start-->
-      <a href="/dashboard" class="logo">VIB <span class="lite"></span></a>
+      <a href="/user/home" class="logo">VIB <span class="lite"></span></a>
       <!--logo end-->
 
-      {% comment %} <div class="nav search-row" id="top_menu">
+       <div class="nav search-row" id="top_menu">
         <!--  search form start -->
         <ul class="nav top-menu">
           <li>
             <form class="navbar-form">
-              <input class="form-control" placeholder="Search" type="text">
+              <input class="form-control" placeholder="Job's Search" type="text">
             </form>
           </li>
         </ul>
         <!--  search form end -->
-      </div> {% endcomment %}
+      </div> 
 
       <div class="top-nav notification-row">
         <!-- notificatoin dropdown start-->
@@ -97,40 +97,40 @@
     <aside>
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
-<ul class="sidebar-menu">
-          <li class="active">
-            <a class="" href="/dashboard">
-              <i class="icon_house_alt"></i>
-              <span>Dashboard</span>
+        <ul class="sidebar-menu">
+          <li class="">
+            <a class="" href="/user/home">
+              
+              <span>Home</span>
             </a>
           </li>
-          <li class="active">
-            <a class="" href="/dashboard">
-              <i class="icon_house_alt"></i>
+          <li class="">
+            <a class="" href="/user/job">
+              
               <span>Availabel Jobs</span>
             </a>
           </li>
-          <li class="active">
-            <a class="" href="/dashboard">
-              <i class="icon_house_alt"></i>
+          <li class="">
+            <a class="" href="/">
+              
               <span>Schedule Interviews</span>
             </a>
           </li>
-           <li class="active">
-            <a class="" href="/dashboard">
-              <i class="icon_house_alt"></i>
-              <span>Interviews</span>
+          <li class="">
+            <a class="" href="/">
+             
+              <span>Interview Result's</span>
             </a>
           </li>
-          <li class="active">
-            <a class="" href="/dashboard">
-              <i class="icon_house_alt"></i>
+          <li class="">
+            <a class="" href="/">
+              
               <span>My Document's</span>
             </a>
           </li>
 
-          </ul>
-        
+        </ul>
+
         {% comment %} <ul class="sidebar-menu">
           <li class="active">
             <a class="" href="/dashboard">

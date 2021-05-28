@@ -2,7 +2,7 @@ from django.http.response import HttpResponseRedirect
 from django.shortcuts import render, redirect, HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.auth  import  authenticate,  login, logout
-from company.models import Jobs, QuestionBank
+from company.models import Jobs, QuestionBank, Interview
 from django.contrib import messages
 
 # Create your views here.
@@ -73,7 +73,7 @@ def update(request, id):
         
         
         messages.success(request, "Your job is updated successfully.")
-        return redirect('/jobs/')
+        return redirect('/company/jobs/')
         #return render(request, 'company/jobs.html')
 
     user = User.objects.get(username=request.user.username)
@@ -102,7 +102,7 @@ def qupdate(request, id):
        
         
         messages.success(request, "Your Question is updated successfully.")
-        return redirect('/questions/')
+        return redirect('/company/questions/')
         #return render(request, 'company/jobs.html')
 
     user = User.objects.get(username=request.user.username)
@@ -146,7 +146,7 @@ def addquestions(request):
        
         
         messages.success(request, "Your Question is added successfully.")
-        return redirect('/questions/')
+        return redirect('/company/questions/')
         #return render(request, 'company/jobs.html')
     user = User.objects.get(username=request.user.username)
     alljobs = Jobs.objects.filter(user=user)
@@ -154,10 +154,19 @@ def addquestions(request):
     return render(request, 'company/addquestions.html', context)
 
 def candidate(request):
-    return render(request, 'company/candidate.html')
+    user = User.objects.get(username=request.user.username)
+    userid = user.id
+    candidates = Interview.objects.filter(company_user_id=userid)
+    context = {'candidates':candidates}
+    return render(request, 'company/candidate.html',context)
 
 def interview(request):
-    return render(request, 'company/interview.html')
+    user = User.objects.get(username=request.user.username)
+    userid = user.id
+    candidates = Interview.objects.filter(company_user_id=userid)
+    context = {'candidates':candidates}
+    #return render(request, 'company/candidate.html',context)
+    return render(request, 'company/interview.html',context)
 
 
 def ulogout(request):
@@ -185,6 +194,6 @@ def addjob(request):
        
         
         messages.success(request, "Your job is added successfully.")
-        return redirect('/jobs/')
+        return redirect('/company/jobs/')
         #return render(request, 'company/jobs.html')
     return render(request, 'company/addjob.html')

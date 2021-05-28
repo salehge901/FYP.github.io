@@ -15,7 +15,7 @@
             <h3 class="page-header"><i class="fa fa-table"></i> Candidates</h3>
             
             <ol class="breadcrumb">
-              <li><i class="fa fa-home"></i><a href="index.html">Dashboard</a></li>
+              <li><i class="fa fa-home"></i><a        href="/company/dashboard">Dashboard</a></li>
               <li><i class="fa fa-table"></i>Candidates</li>
               
             </ol>
@@ -42,19 +42,34 @@
                     <th><i class="icon_calendar"></i> Result</th>
                     <th><i class="icon_cogs"></i> Action</th>
                   </tr>
+                  {% if candidates %}
+
+              {% for candidate in candidates %}
                   <tr>
-                    <td>Ahsan</td>
-                    <td>Graphic Designer</td>
-                    <td>Completed</td>
-                    <td>7.8/10.0</td>
+                    <td>{{candidate.user.username}}</td>
+                    <td>{{candidate.job.job_title}}</td>
+                    <td>{{candidate.interview_status}}</td>
+                    <td>{{candidate.result}}</td>
                     <td>
-                      <div class="btn-group">
+                      <div class="">
                         <a class="btn btn-primary" href="#">Report</a>
                         <a class="btn btn-success" href="#">Select</a>
                         <a class="btn btn-danger" href="#">Remove</a>
                       </div>
                     </td>
                   </tr>
+                  {% endfor %}
+
+              {% else %}
+
+
+              <tr>
+                <td class="text-center">no record found.</td>
+              </tr>
+
+
+
+              {% endif %}
 
                 </tbody>
               </table>

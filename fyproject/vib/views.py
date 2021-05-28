@@ -18,8 +18,8 @@ def about(request):
 def cdasboard(request):
     return render(request, 'company/dashboard.html')
 
-def udashboard(request):
-    return render(request, 'user/dashboard.html')
+def uhome(request):
+    return render(request, 'user/home.html')
 
 def contact(request):
     return render(request, 'vib/contact.html')
@@ -42,11 +42,11 @@ def ulogin(request):
             login(request  , user)
             if(type=="Candidate"):
                 request.session['Utype']=type
-                #return redirect('/dashboard/')
-                return render(request, 'user/dashboard.html')
+                return redirect('/user/home/')
+                #return render(request, 'user/home.html')
             if(type=="Company"):
                 request.session['Utype']=type
-                return redirect('/dashboard/')
+                return redirect('/company/dashboard/')
                 #return render(request, 'company/dashboard.html')
 
         else:

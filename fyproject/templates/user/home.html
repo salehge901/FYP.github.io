@@ -1,5 +1,5 @@
-{% extends 'company/basic.html' %}
- {% block title %} Dashboard {% endblock title %}
+{% extends 'user/basic.html' %}
+ {% block title %}  Home {% endblock title %}
 
 {% block body %}
 {% load static %}
@@ -7,23 +7,14 @@
 
 <section id="main-content">
   <section class="wrapper">
-    <!--overview start-->
-    <div class="row">
-      <div class="col-lg-12">
-        <h3 class="page-header"><i class="fa fa-laptop"></i> Dashboard</h3>
-        <ol class="breadcrumb">
-          <li><i class="fa fa-home"></i><a href="/company/dashboard">Dashboard</a></li>
-         
-        </ol>
-      </div>
-    </div>
+    
 
     <div class="row">
       <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
         <div class="info-box blue-bg">
           
           <div class="count">10</div>
-          <div class="title">Job's</div>
+          <div class="title">Applied Job's</div>
         </div>
         <!--/.info-box-->
       </div>
@@ -33,7 +24,7 @@
         <div class="info-box brown-bg">
           
           <div class="count">40</div>
-          <div class="title">Applied Candidate's</div>
+          <div class="title">Pending Interview's</div>
         </div>
         <!--/.info-box-->
       </div>
@@ -53,7 +44,7 @@
         <div class="info-box green-bg">
          
           <div class="count">10</div>
-          <div class="title">Panding Interview's</div>
+          <div class="title">Selected In Job's</div>
         </div>
         <!--/.info-box-->
       </div>

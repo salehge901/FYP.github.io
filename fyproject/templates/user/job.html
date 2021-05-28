@@ -1,0 +1,53 @@
+{% extends 'user/basic.html' %}
+{% block title %} Home {% endblock title %}
+
+{% block body %}
+{% load static %}
+
+
+<section id="main-content">
+    <section class="wrapper">
+
+
+        <div class="row">
+            {% if alljobs %}
+            {% for jobs in alljobs  %}
+            {% if jobs.job_status %}
+            <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+                <div class="info-box gray-bg">
+
+                    <div class="count">{{jobs.job_title}}</div>
+                    <div class="title">{{jobs.job_discription}}</div>
+                    <a href="{% url 'interviewschdule' jobs.id %}" class="btn btn-primary btn-lg btn-block">Sechdule Interview</a>
+                </div>
+                <!--/.info-box-->
+            </div>
+            <div class="col-lg-2 col-md-2 "></div>
+            {% endif %}
+            {% endfor %}
+            {% else %}
+            <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+                <div class="info-box gray-bg">
+
+                    
+                    <div class="title">There is no Job's</div>
+                    
+                </div>
+                <!--/.info-box-->
+            </div>
+            <div class="col-lg-2 col-md-2 "></div>
+           
+            {% endif %}
+
+
+        </div>
+        <!--/.row-->
+
+
+    </section>
+
+</section>
+
+
+
+{% endblock body %}

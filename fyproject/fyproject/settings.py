@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'vib.apps.VibConfig',
     'company.apps.CompanyConfig',
+    'user.apps.UserConfig',
 ]
 
 MIDDLEWARE = [
