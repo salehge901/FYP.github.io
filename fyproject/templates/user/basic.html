@@ -38,11 +38,11 @@
 
 <body>
   <!-- container section start -->
-  <section id="container" class="">
+  <section id="container" class="{% block sidebar %}{% endblock sidebar %}">
 
 
-    <header class="header dark-bg">
-      <div class="toggle-nav">
+    <header class="header dark-bg" {% block header %}{% endblock header %}>
+      <div class="toggle-nav" {% block manu %}{% endblock manu %}>
         <div class="icon-reorder tooltips" data-original-title="" data-placement="bottom"><i class="icon_menu"></i>
         </div>
       </div>
@@ -51,7 +51,7 @@
       <a href="/user/home" class="logo">VIB <span class="lite"></span></a>
       <!--logo end-->
 
-       <div class="nav search-row" id="top_menu">
+       <div class="nav search-row" {% block searchbar %}{% endblock searchbar %} id="top_menu">
         <!--  search form start -->
         <ul class="nav top-menu">
           <li>
@@ -79,7 +79,7 @@
             <ul class="dropdown-menu extended logout">
               <div class="log-arrow-up"></div>
               <li class="eborder-top">
-                <a href="#"><i class="icon_profile"></i> My Profile</a>
+                <a href="/user/profile"><i class="icon_profile"></i> My Profile</a>
               </li>
               <li>
                 <a href="/logout"><i class="icon_key_alt"></i> Log Out </a>
@@ -111,7 +111,7 @@
             </a>
           </li>
           <li class="">
-            <a class="" href="/">
+            <a class="" href="/user/interview">
               
               <span>Schedule Interviews</span>
             </a>
@@ -207,6 +207,7 @@
   <script src="{% static 'cassets/js/scripts.js' %}"></script>
 
   <script src="{% static 'cassets/js/jquery-jvectormap-1.2.2.min.js' %}"></script>
+  
 
 
 

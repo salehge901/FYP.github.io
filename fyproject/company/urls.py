@@ -7,6 +7,7 @@ from django.contrib.auth  import  authenticate,  login, logout
 urlpatterns = [
     path('company/dashboard/', views.dashboard, name='dashboard'),
     path('company/jobs/', views.jobs, name='jobs'),
+    path('company/profile/', views.profile, name='profile'),
     path('company/jobs/add-job/', views.addjob, name='addjob'),
     path('company/questions/', views.questions, name='questions'),
     path('company/questions/<int:id>', views.jquestions, name='jquestions'),

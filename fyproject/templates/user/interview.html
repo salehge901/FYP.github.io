@@ -1,0 +1,76 @@
+{% extends 'user/basic.html' %}
+{% block title %} Home {% endblock title %}
+
+{% block body %}
+{% load static %}
+
+
+<section id="main-content">
+  <section class="wrapper">
+    <div class="row">
+      <div class="col-lg-12">
+        <h3 class="page-header"><i class="fa fa-table"></i> Interview</h3>
+
+        
+      </div>
+
+    </div>
+    <!-- page start-->
+
+
+
+    <div class="row">
+      <div class="col-lg-12">
+        <section class="panel">
+         
+
+          <table class="table table-striped table-advance table-hover">
+            <tbody>
+              <tr>
+                
+                <th><i class="icon_calendar"></i> Job</th>
+                <th><i class="icon_calendar"></i> Interview Date Time</th>
+                <th><i class="icon_calendar"></i> Status</th>
+                <th><i class="icon_cogs"></i> Action</th>
+              </tr>
+              {% if allinterview %}
+
+              {% for interview in allinterview %}
+              <tr>
+                
+                <td>{{interview.job.job_title}}</td>
+                <td>{{interview.schduele_time}}</td>
+                <td>{{interview.interview_status}}</td>
+                <td>
+                  <div class="">
+
+                    <a class="btn btn-danger" href="#">Delete</a>
+                    <a class="btn btn-success" href="{% url 'takeinterview' interview.id 0 %}">Start Interview</a>
+                  </div>
+                </td>
+              </tr>
+              {% endfor %}
+
+              {% else %}
+
+
+              <tr>
+                <td class="text-center">no record found.</td>
+              </tr>
+
+
+
+              {% endif %}
+            </tbody>
+          </table>
+        </section>
+      </div>
+    </div>
+    <!-- page end-->
+  </section>
+</section>
+<!--main content end-->
+
+
+
+{% endblock body %}

@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+#from user.models import InterviewQuestions
 
 # Create your models here.
 class Jobs(models.Model):
@@ -20,6 +21,8 @@ class QuestionBank(models.Model):
     job = models.ForeignKey(Jobs, on_delete=models.CASCADE)
     question = models.CharField(max_length=300)
     answer = models.CharField(max_length=800)
+    # min_score = models.IntegerField()
+    # max_score = models.IntegerField()
     #time = models.TimeField((""), auto_now=False, auto_now_add=False)
     time = models.IntegerField()
     #time = models.DateTimeField((""), auto_now=False, auto_now_add=False)
@@ -45,3 +48,31 @@ class Interview(models.Model):
     
     def __str__(self):
         return "%s %s %s %s" % (self.user,"_"+self.job.job_title,"_",self.job.user )
+
+class InterviewQuestion(models.Model):
+    id = models.AutoField(primary_key=True)
+    question_id = models.IntegerField()
+    job_id = models.IntegerField()
+    job_title = models.CharField(max_length=200)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    Interview = models.ForeignKey(Interview, on_delete=models.CASCADE)
+    question = models.CharField(max_length=300)
+    question_answer = models.CharField(max_length=800)
+    candidate_answer = models.CharField(max_length=800)
+    # min_score = models.IntegerField()
+    # max_score = models.IntegerField()
+    sent = models.TextField(max_length=100)
+    Happy = models.TextField(max_length=10000 , default='Hapyy')
+    Neutral = models.TextField(max_length=10000 , default='Neutral')
+    Sad = models.TextField(max_length=10000 , default='Sad')
+    Fear = models.TextField(max_length=10000 ,default='Fear')
+    Surprise = models.TextField(max_length=10000 , default='Surprise' )
+    Disgust = models.TextField(max_length=1000, default='Disgust')
+    Angry = models.TextField(max_length=1000, default='Angry')
+    score = models.IntegerField(null=True, blank=True)
+    status =models.BooleanField(default=False)
+
+    
+
+    
+

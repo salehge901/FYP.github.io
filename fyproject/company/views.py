@@ -15,6 +15,12 @@ def jobs(request):
     context = {'alljobs':alljobs}
     #print(alljobs)
     return render(request, 'company/jobs.html', context)
+def profile(request):
+    user = User.objects.get(username=request.user.username)
+    
+    context = {'user':user}
+    #print(alljobs)
+    return render(request, 'company/profile.html', context)
 
 
 def questions(request):
