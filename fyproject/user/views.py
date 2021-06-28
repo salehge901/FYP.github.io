@@ -306,7 +306,8 @@ def takeinterview(request, id, qid):
 def interviewschdule(request, id):
     if request.method == "POST":
 
-        timeddl = request.POST["timeddl"]
+        date = request.POST["date"]
+        time = request.POST["time"]
 
         user = User.objects.get(username=request.user.username)
         ujob = Jobs.objects.get(id=id)
@@ -314,7 +315,9 @@ def interviewschdule(request, id):
             user=user,
             job=ujob,
             company_user_id=ujob.user.id,
-            applidejob_id=id,
+            applidejob_id=ujob.id,
+            date=date,
+            time=time,
             schduele_time="2021-05-06 22:01",
         )
         interview.save()

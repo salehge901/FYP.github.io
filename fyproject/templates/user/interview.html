@@ -40,6 +40,13 @@
                 
                 <td>{{interview.job.job_title}}</td>
                 <td>{{interview.schduele_time}}</td>
+                <td><div id="event-box">{{interview.date|date:"M d, Y "}}{{interview.time|time:"H:i"}}</div>
+<div>Time Left:</div>
+<div id="countdown-box" class="text-center mt-3 h1">
+ <div class="spinner-border" role="status"></div>
+ <div id="countdown1-box" >
+</div>
+</div></td>
                 <td>{{interview.interview_status}}</td>
                 <td>
                   <div class="">
@@ -71,6 +78,29 @@
 </section>
 <!--main content end-->
 
+<script>
+setInterval(()=>{
+ var eventBox =document.getElementById("event-box")
+var countdownBox = document.getElementById("countdown-box")
+var countdownBox1 = document.getElementById("countdown1-box")
+var event =  eventBox.innerText
+var eventDate =  new Date(event).getTime()
+var now = new Date().getTime()
+var diff = eventDate - now
+var d =   Math.floor(diff / (1000 * 60 * 60 * 24))
+var g =   Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+var i =   Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))
+var s =   Math.floor((diff % (1000 * 60)) / 1000)
+if(diff>0)
+  {
+  countdownBox.innerText = d +"Days: " + g + "Hours: " + i + "Minutes: " + s + "Seconds"
+   }
+else
+{
+      countdownBox.innerText = evenDate
+}
 
+  },1000)
+</script>
 
 {% endblock body %}

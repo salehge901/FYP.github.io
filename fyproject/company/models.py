@@ -41,6 +41,8 @@ class Interview(models.Model):
     applidejob_id = models.IntegerField()
     schduele_time = models.DateTimeField((""), auto_now=False, auto_now_add=False)
     apply_date = models.DateTimeField(auto_now_add=True, blank=True)
+    date = models.DateField()
+    time = models.TimeField()
     interview_status =models.BooleanField(default=False)
     confirm_status =models.BooleanField(default=False)
     video_link = models.CharField(max_length=200)
