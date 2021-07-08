@@ -16,6 +16,7 @@ urlpatterns = [
     path('user/job/', views.ujob, name='ujob'),
     path('user/profile/', views.profile, name='profile'),
     path('user/interview/', views.interview, name='interview'),
+    path('user/countdown/<int:id>', views.countdown, name='countdown'),
     path('interview/<int:id>/<int:qid>', views.takeinterview,name='takeinterview'),
     path('user/job/interview-schdule/<int:id>', views.interviewschdule, name='interviewschdule'),
 ]

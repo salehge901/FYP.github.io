@@ -29,6 +29,8 @@ from .utils.helpers import *
 import os
 from textblob import TextBlob
 
+audiojs = False
+
 current_path = os.path.abspath(os.path.dirname(__file__))
 facec = cv2.CascadeClassifier(
     "opencv_haarcascade_data/haarcascade_frontalface_default.xml"
@@ -47,6 +49,7 @@ class VideoCamera(object):
 
     def __del__(self):
         self.video.release()
+        cv2.destroyAllWindows()
 
     # returns camera frames along with bounding boxes and predictions
     def get_frame(self):
@@ -105,7 +108,8 @@ def gen(camera):
 def video_feed(request):
 
     return StreamingHttpResponse(
-        gen(VideoCamera()), content_type="multipart/x-mixed-replace; boundary=frame"
+        gen(VideoCamera()), 
+        content_type="multipart/x-mixed-replace; boundary=frame"
     )
 
 
@@ -116,10 +120,11 @@ def uhome(request):
 
 
 def ujob(request):
-    # user = User.objects.get(username=request.user.username)
+    user = User.objects.get(username=request.user.username)
 
     alljobs = Jobs.objects.all()
-    context = {"alljobs": alljobs}
+    allinterview = Interview.objects.filter(user=user)
+    context = {"alljobs": alljobs,"allinterview": allinterview}
     return render(request, "user/job.html", context)
 
 
@@ -133,8 +138,14 @@ def profile(request):
 def interview(request):
     user = User.objects.get(username=request.user.username)
     allinterview = Interview.objects.filter(user=user)
+    jsId = []
+    for interview in allinterview:
+        id = str(interview.id)
+        jsId.append(id)
 
-    context = {"allinterview": allinterview}
+    print(jsId)
+    context = {"allinterview": allinterview ,"interviewid":jsId}
+
     return render(request, "user/interview.html", context)
 
 
@@ -143,6 +154,8 @@ def takeinterview(request, id, qid):
     data = ""
     sent = ""
     if request.method == "POST":
+        VideoCamera().__del__
+        
         question_id = request.POST["questionid"]
         qid = int(request.POST["qid"])
         qanswer = request.POST["answer"]
@@ -299,7 +312,7 @@ def takeinterview(request, id, qid):
 
     firstQuestion = question[qid]
 
-    context = {"firstQuestion": firstQuestion, "last": last, "data": data, "sent": sent,"qid":qid}
+    context = {"firstQuestion": firstQuestion, "last": last, "data": data, "sent": sent,"qid":qid , "audiojs":audiojs}
     return render(request, "user/takeinterview.html", context)
 
 
@@ -346,3 +359,9 @@ def interviewschdule(request, id):
     print(user)
     context = {"job": ujob}
     return render(request, "user/secduleinterview.html", context)
+
+
+def countdown(request,id):
+    allinterview = Interview.objects.filter(id = id)
+    context = {"allinterview": allinterview}
+    return render(request, "user/countdown.html", context) 

@@ -19,7 +19,9 @@
   <link href="{% static 'cassets/css/style-responsive.css' %}" rel="stylesheet" />
 
 
+{% block head %}
 
+{% endblock head %}
 
 
   {% if user.is_authenticated %}
@@ -208,7 +210,7 @@
 
   <script src="{% static 'cassets/js/jquery-jvectormap-1.2.2.min.js' %}"></script>
   
-
+{% block script %}{% endblock script %}
 
 
 </body>

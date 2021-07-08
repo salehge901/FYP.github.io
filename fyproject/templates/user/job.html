@@ -10,15 +10,39 @@
 
 
         <div class="row">
+            
             {% if alljobs %}
-            {% for jobs in alljobs  %}
+
+            {% for jobs in alljobs %}
             {% if jobs.job_status %}
             <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
                 <div class="info-box gray-bg">
 
                     <div class="count">{{jobs.job_title}}</div>
                     <div class="title">{{jobs.job_discription}}</div>
-                    <a href="{% url 'interviewschdule' jobs.id %}" class="btn btn-primary btn-lg btn-block">Sechdule Interview</a>
+
+                    {% if allinterview %}
+                   
+                        {% for interview in  allinterview %}
+
+                            {% if interview.applidejob_id == jobs.id %}
+                             <button class="btn btn-primary btn-lg btn-block" disabled >Applied</button>
+                             {% else %}
+                                <a href="{% url 'interviewschdule' jobs.id %}" class="btn btn-primary btn-lg btn-block">Sechdule
+                                 Interview</a>   
+                            {% endif %}
+                        {% endfor %}
+                    {% else %}
+                        <a href="{% url 'interviewschdule' jobs.id %}" class="btn btn-primary btn-lg btn-block">Sechdule
+                        Interview</a>  
+                    {% endif %}
+                   
+                   
+                    
+                    
+                     
+                   
+                    
                 </div>
                 <!--/.info-box-->
             </div>
@@ -29,15 +53,22 @@
             <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
                 <div class="info-box gray-bg">
 
-                    
+
                     <div class="title">There is no Job's</div>
-                    
+
                 </div>
                 <!--/.info-box-->
             </div>
             <div class="col-lg-2 col-md-2 "></div>
-           
+
             {% endif %}
+            
+
+            
+           
+
+           
+
 
 
         </div>
